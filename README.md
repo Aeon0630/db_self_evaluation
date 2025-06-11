@@ -99,7 +99,15 @@ SELECT aggregate_fun(column)
   
 ## 补充学习
 ### 1.窗口函数
-
+函数名() OVER (
+    PARTITION BY column1,colum2,...
+    ORDER BY column1,colum2,...
+)
+- PARTITION BY：分组列
+- ORDER BY：窗口内的排序规则
+- 常见的窗口函数
+  - 聚合函数（列名）
+  - 排名函数：rank、dense_rank、row_number
 
 
 # 第八周：子查询
