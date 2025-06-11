@@ -9,26 +9,54 @@
 ### 3.关系代数
 
 
-# 第三-六周：数据库中基本的增、删、修、查语句
+# 第三-六周：数据库中基本的增、删、改、查语句
 ## 学习内容
 ### 1.在数据库中创建关系
 - create table 语句
 ### 2.查询语句
 - select 语句
+  ```
+  SELECT column1,column2,.../*
+  ```
   - 列之间可进行数值运算
   - 对列重新命名：as
   - 去重：distinct
 - from 语句
+  ```
+  FROM table
+  ```
 - where 语句
+  ```
+  WHERE condition
+  ```
   - 基本筛选符：>、>=、<、<=、=、！=
   - between...and...
   - in.../not in...
   - is null
   - like 字符串匹配符：% 匹配任意多个字符，_ 匹配单个字符（转义字符：\）
 - order by 语句
+  ```
+  ORDER BY column1 DESC, column2 ASC
+  ```
 - limit 语句
-
-### 3.
+  ```
+  LIMIT 取值数 OFFSET 跳过数
+  ```
+### 3.增加语句
+```
+INSERT INTO table (column1,column2,...)
+VALUES (value1),(value2),...
+```
+### 4.修改语句
+```
+UPDATE table
+SET column1 = ..., column2 = ...
+```
+### 5.删除语句
+```
+DELET FROM table
+WHERE condition
+```
  
 
 
