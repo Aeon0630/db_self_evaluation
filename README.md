@@ -1,4 +1,6 @@
 # 第一周：
+将postgresql、datagrip、mysql、mysql workbench下站安装到本地，熟悉软件界面的基本操作
+
 
 # 第二周：关系模式
 ## 学习内容
@@ -52,6 +54,8 @@
   ```
   ORDER BY column1 DESC, column2 ASC
   ```
+  - 排除null：在where语句中加入is not null
+  - null排最后：nulls last
 - limit 语句
   ```
   LIMIT 取值数 OFFSET 跳过数
@@ -74,6 +78,9 @@ WHERE condition
 DELET FROM table:清空表     TRUNCATE table:清空表     DROP table:删除表
 ### 6.集合操作
 UNION：并   INTERSECT：交   EXCEPT：差
+
+## 补充学习
+### 1.
 
 ## 总结与反思
 - 这部分内容相对基础，重点掌握查询语句的应用
