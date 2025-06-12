@@ -48,7 +48,7 @@
   - 基本筛选符：>、>=、<、<=、=、！=
   - between...and...
   - in.../not in...
-  - is null
+  - is (not) null  注意：不能用=
   - like 字符串匹配符：% 匹配任意多个字符，_ 匹配单个字符（转义字符：\）
 - order by 语句
   ```
@@ -78,9 +78,10 @@ WHERE condition
 DELET FROM table:清空表     TRUNCATE table:清空表     DROP table:删除表
 ### 6.集合操作
 UNION：并   INTERSECT：交   EXCEPT：差
-
-## 补充学习
-### 1.
+### 7.NULL部分
+- NULL参与数值运算返回结果为空
+- NULL与其他值进行比较得到的逻辑状态为unknown，unknown逻辑状态的数据在查询中不会显示
+- NULL的填充：COALESCE(...,...) （返回第一个非空值）
 
 ## 总结与反思
 - 这部分内容相对基础，重点掌握查询语句的应用
