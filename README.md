@@ -191,7 +191,7 @@ sheet1 FULL OUTER JOIN sheet2 ON sheet1.col1 = sheet2.col2
 # 第十一周：高级数据类型
 ## 学习内容
 ### 1.日期、时间型
-掌握date、time、timestamp数据类型及date、time的相关运算
+掌握date、time、timestamp数据类型及date、time的相关运算（interval）
 ### 2.自定义类型
 ```
 GREATE TYPE 类型名 AS ...
@@ -204,6 +204,9 @@ GREATE TYPE 类型名 AS ...
 
 ## 补充学习
 ### 1.日期时间函数
+- 获取当前日期时间：current_date、current_time、current_timestamp
+- 提取日期时间：extract (... from ...)
+- 格式化日期时间：to_char(...,'')
 
 
 # 第十二周：E-R图
