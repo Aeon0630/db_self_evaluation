@@ -280,7 +280,15 @@ CREATE TYPE 类型名 AS ...
 
 
 # 拓展学习
-由于在业界mysql的使用更为广泛，所以在课后也同步学习了B站上mosh老师讲sql的课程。mysql的语法与postgresql的语法极为相近，所以该线上课程更多作为对课堂学习的巩固和补充。下面将简单地对mysql和postgresql的不同部分做一个总结。
-
-
+由于在业界mysql的使用更为广泛，所以在课后也同步学习了B站上mosh老师讲sql的课程。mysql的语法与postgresql的语法极为相似，所以该线上课程更多作为对课堂学习的巩固和补充。下面将简单地对mysql和postgresql的不同部分做一个总结。
+- 字符串：mysql中可用""或''来表示字符串，区分字符串的大小写，一般用concat来连接字符串；postgresql中只能用''来表示字符串，不区分字符串大小写，可用concat或||来连接字符串
+- 表连接：mysql中没有全连接，但可以通过left join + right join + union来实现
+- 自增id：mysql中通过auto_increment实现
+- 空值处理：mysql中除了用coalesce函数，还可以用ifnull函数
+- 条件判断：mysql中除了用case语句，还可以用if语句
+- 日期时间函数
+  - 获取当前日期时间： mysql——curdate、curtime、now   postgresql——current_date、current_time、current_timestamp
+  - 日期时间格式化： mysql——date_format(...,'')、time_format(...,'')   postgresql——to_char(...,'')
+  - 日期时间增加/减少： mysql——date_add(...,interval ...)、date_sub(...,interval ...)   postgresql——interval
+  - 日期时间差值计算： mysql——datediff(结束日期,开始日期)   postgresql——直接加减
 
