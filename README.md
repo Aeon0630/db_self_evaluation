@@ -1,22 +1,22 @@
-# 第一周：
-将postgresql、datagrip、mysql、mysql workbench下站安装到本地，熟悉软件界面的基本操作
+# 第一周：软件下载安装
+了解数据库基本知识，将postgresql、datagrip、mysql、mysql workbench下站安装到本地，熟悉软件界面的基本操作（如创建数据库、导入数据表、查看数据表基本信息等）。
 
 
 # 第二周：关系模式
-## 学习内容
+## 学习内容与收获
 ### 1.关系数据库
-掌握关系、元组、属性、域等基本概念
+掌握关系、元组、属性、域等基本概念，将关系型数据库与excel中的表格进行类比。其中关系可以看为元组的集合，且元组具有无序性和不可重复性。
 ### 2.码
-掌握超码、候选码、主码、外码之间的区别与联系
+掌握超码、候选码、主码、外码之间的区别与联系。
 ### 3.关系代数
-掌握交、并、补、笛卡尔积、连接、选择、投影等基本运算
+掌握交、并、差、笛卡尔积、连接、选择、投影等基本运算。其中交、并、差要求各个关系之间有相同的关系模式。
 
 
 # 第三-六周：数据库中基本的增、删、改、查语句
-## 学习内容
+## 学习内容与收获
 ### 1.在数据库中创建关系
 - create table 语句
-  ```
+  ```ruby
   CREATE TABLE sheet_name(
    column1   type1,
    column2   type2,
@@ -31,47 +31,48 @@
   - 自增id：serial
 ### 2.查询语句
 - select 语句
+  ```ruby
+  SELECT column1,column2,...
+  SELECT *  # 筛选所有列
   ```
-  SELECT column1,column2,.../*
-  ```
-  - 列之间可进行数值运算
+  - 列数据可进行运算
   - 对列重新命名：as
   - 去重：distinct
 - from 语句
-  ```
+  ```ruby
   FROM table
   ```
 - where 语句
+  ```ruby
+  WHERE condition（条件语句）
   ```
-  WHERE condition
-  ```
-  - 基本筛选符：>、>=、<、<=、=、！=
+  - 比较运算符：>、>=、<、<=、=、！=
   - between...and...
   - in.../not in...
   - is (not) null  注意：不能用=
   - like 字符串匹配符：% 匹配任意多个字符，_ 匹配单个字符（转义字符：\）
 - order by 语句
-  ```
+  ```ruby
   ORDER BY column1 DESC, column2 ASC
   ```
-  - 排除null：在where语句中加入is not null
-  - null排最后：nulls last
+  - 排除null：在where语句中加入is not null条件
+  - null排最后：在order by语句最后加入nulls last
 - limit 语句
-  ```
+  ```ruby
   LIMIT 取值数 OFFSET 跳过数
   ```
 ### 3.增加语句
-```
+```ruby
 INSERT INTO table (column1,column2,...)
 VALUES (value1),(value2),...
 ```
 ### 4.修改语句
-```
+```ruby
 UPDATE table
 SET column1 = ..., column2 = ...
 ```
 ### 5.删除语句
-```
+```ruby
 DELET FROM table
 WHERE condition
 ```
@@ -88,22 +89,22 @@ UNION：并   INTERSECT：交   EXCEPT：差
 
 
 # 第七周：聚合函数
-## 学习内容
+## 学习内容与收获
 ### 1.聚合函数
 MAX、MIN、SUM、AVG、COUNT
-```
+```ruby
 SELECT aggregate_fun(column)
 ```
 - 聚合函数一般会忽略掉null值，但COUNT(*)统计所有的行数
 ### 2.group by 语句
-```
+```ruby
 GROUP BY column1,column2,...
 ```
 - 当select语句中有聚合函数时，对筛选数据按某一标准分组
 - 位于where语句之后，order by语句之前
 - 包含所有的非聚合列
 ### 3.having 语句
-```
+```ruby
 HAVING condition
 ```
 - 当select语句中有聚合函数时，对分组后的数据再次进行筛选
@@ -111,7 +112,7 @@ HAVING condition
   
 ## 补充学习
 ### 1.窗口函数
-```
+```ruby
 函数名() OVER (
     PARTITION BY column1,colum2,...
     ORDER BY column1,colum2,...
@@ -128,20 +129,20 @@ HAVING condition
 - group by 语句的使用：初次使用聚合函数时，常会忘记group by语句，对分组聚合的逻辑理解还不够深刻
 
 # 第八周：子查询
-## 学习内容
+## 学习内容与收获
 ### 1.from 语句中的子查询
-```
+```ruby
 FROM (subquery)
 ```
 ### 2.select 语句中的子查询
-```
+```ruby
 SELECT (subquery)
 ```
 - 标量子查询
 - 相关子查询
 ### 3.where/having 语句中的子查询
-```
-WHERE column 筛选符 (subquery)   # 筛选符包括基本筛选符、IN等
+```ruby
+WHERE column 筛选符 (subquery)   # 筛选符包括基本的比较运算符、IN等
 WHERE column 筛选符 ANY/ALL(subquery)
 WHERE EXISTS(subquery)
 ```
@@ -158,7 +159,7 @@ WHERE EXISTS(subquery)
 
 
 # 第九周：关系模式的改变
-## 学习内容
+## 学习内容与收获
 ### 1.alter table语句的用法
 - 增加列：add column
 - 修改表名：rename to
@@ -178,22 +179,22 @@ WHERE EXISTS(subquery)
 # 第十周：表连接
 ## 学习内容
 ### 1.自然连接
-```
+```ruby
 sheet1 NATURAL JOIN sheet2
 ```
 自动匹配所有同名列
 ### 2.内连接
-```
+```ruby
 sheet1 INNER JOIN sheet2 ON sheet1.col1 = sheet2.col2
 ```
 返回两表中匹配的行
 ### 3.外连接
-```
+```ruby
 sheet1 LEFT/RIGHT OUTER JOIN sheet2 ON sheet1.col1 = sheet2.col2
 ```
 返回左（右）表所有行 + 右（左）表匹配行，右（左）表无匹配用 NULL填充
 ### 4.全连接
-```
+```ruby
 sheet1 FULL OUTER JOIN sheet2 ON sheet1.col1 = sheet2.col2
 ```
 返回左表和右表的所有行，无匹配项用 NULL 填充
