@@ -293,7 +293,7 @@ CREATE TYPE 类型名 AS ...
 
 
 # 拓展学习
-由于在业界mysql的使用更为广泛，所以在课后也同步学习了B站上mosh老师讲sql的课程[video/BV1UE41147KC/?spm_id_from=333.337.search-card.all.click](https://www.bilibili.com/)。mysql的语法与postgresql的语法极为相似，所以该线上课程更多作为对课堂学习的巩固和补充。下面将简单地对mysql和postgresql的不同部分做一个总结。
+由于在业界mysql的使用更为广泛，所以在课后也同步学习了B站上mosh老师讲sql的课程[sql课程]([https://www.bilibili.com/](https://www.bilibili.com/video/BV1UE41147KC/?spm_id_from=333.337.search-card.all.click&vd_source=799e8e881eca4f6927ede1cbdec3673e))。mysql的语法与postgresql的语法极为相似，所以该线上课程更多作为对课堂学习的巩固和补充。下面将简单地对mysql和postgresql的不同部分做一个总结。
 - 字符串：mysql中可用""或''来表示字符串，区分字符串的大小写，一般用concat来连接字符串；postgresql中只能用''来表示字符串，不区分字符串大小写，可用concat或||来连接字符串
 - 表连接：mysql中没有全连接，但可以通过left join + right join + union来实现
 - 自增id：mysql中通过auto_increment实现
