@@ -1,3 +1,8 @@
+# 数据库原理与应用
+- 记录学习内容与收获
+- [作业](https://github.com/Aeon0630/db_homework)
+- [相关练习](https://www.nowcoder.com/exam/oj?page=1&tab=SQL%E7%AF%87&topicId=199)
+
 # 第一周：软件下载安装
 了解数据库基本知识，将postgresql、datagrip、mysql、mysql workbench下站安装到本地，熟悉软件界面的基本操作（如创建数据库、导入数据表、查看数据表基本信息等）。
 
