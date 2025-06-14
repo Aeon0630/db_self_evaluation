@@ -158,19 +158,33 @@ WHERE EXISTS(subquery)
 # 第九周：关系模式的改变
 ## 学习内容与收获
 ### 1.alter table语句的用法
-- 增加列：add column
-- 修改表名：rename to
-- 修改列名：alter column ... to ...
-- 修改数据类型：alter column ... type ...
-- 修改默认值：alter column ... set default
-- 删除默认值：alter column ... drop default
-- 删除列：drop column ...
+```ruby
+增加列：
+ALTER TABLE sheet_name ADD COLUMN col1,...
+修改表名：
+ALTER TABLE sheet_name RENAME TO new_sheet_name
+修改列名：
+ALTER TABLE sheet_name ALTER COLUMN col TO new_col
+修改数据类型：
+ALTER TABLE sheet_name ALTER COLUMN col TYPE
+修改默认值：
+ALTER TABLE sheet_name ALTER COLUMN col SET DEFAULT ...
+删除默认值：
+ALTER TABLE sheet_name ALTER COLUMN col DROP DEFAULT
+删除列：
+ALTER TABLE sheet_name DROP COLUMN col1,...
+```
 
 ## 补充学习
 ### 1.alter table语句更多用法
-- 增加主键：add constraint ... primary key (column1,..)
-- 增加唯一约束：add constraint ... unique (column1,...)
-- 增加约束：add constraint ... check (condition)
+```ruby
+增加主键：
+ALTER TABLE sheet_name ADD CONSTRAINT pk_sheet_name PRIMARY KEY (col1,...)
+增加唯一约束：
+ALTER TABLE sheet_name ADD CONSTRAINT unique_col UNIQUE(col)
+增加约束：
+ALTER TABLE sheet_name ADD CONSTRAINT check_col CHECK(condition)
+```
 
 
 # 第十周：表连接
