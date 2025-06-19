@@ -81,7 +81,7 @@ SET column1 = ..., column2 = ...
 DELET FROM table
 WHERE condition
 ```
-DELET FROM table:清空表     TRUNCATE table:清空表     DROP table:删除表
+DELET FROM table:清空表     TRUNCATE TABLE table:清空表     DROP TABLE table:删除表
 ### 6.集合操作
 UNION：并   INTERSECT：交   EXCEPT：差
 ### 7.NULL部分
@@ -102,15 +102,18 @@ SELECT aggregate_fun(column)
 ```ruby
 GROUP BY column1,column2,...
 ```
-- 当select语句中有聚合函数时，对筛选数据按某一标准分组
+- 对筛选数据按某一标准分组
 - 位于where语句之后，order by语句之前
-- 包含所有的非聚合列
+- 当select语句中包含聚合列和非聚合列时，group by语句中需包含所有的非聚合列
+- 当select语句中只包聚合列时，group by可不存在
+- 当select语句中只包含非聚合列时，group by语句中需包含所有的非聚合列（除了只查询单列以外，其他时候无意义）
 ### 3.having 语句
 ```ruby
 HAVING condition
 ```
-- 当select语句中有聚合函数时，对分组后的数据再次进行筛选
+- 对分组后的数据再次进行筛选
 - 位于group by语句之后，order by语句之前
+- having语句中的条件可包含select语句中的类名和聚合式，以及参与表中其它的聚合式
   
 ## 补充学习
 ### 1.窗口函数
@@ -313,7 +316,7 @@ CREATE TYPE 类型名 AS ...
 
 # 拓展学习
 由于在业界mysql的使用更为广泛，所以在课后也同步学习了B站上mosh老师讲[sql的课程](https://www.bilibili.com/video/BV1UE41147KC/?spm_id_from=333.337.search-card.all.click&vd_source=799e8e881eca4f6927ede1cbdec3673e)。mysql的语法与postgresql的语法极为相似，所以该线上课程更多作为对课堂学习的巩固和补充。下面将简单地对mysql和postgresql的不同部分做一个总结。
-- 字符串：mysql中可用""或''来表示字符串，区分字符串的大小写，一般用concat来连接字符串；postgresql中只能用''来表示字符串，不区分字符串大小写，可用concat或||来连接字符串
+- 字符串：mysql中可用""或''来表示字符串，不区分字符串的大小写，一般用concat来连接字符串；postgresql中只能用''来表示字符串，区分字符串大小写，可用concat或||来连接字符串
 - 表连接：mysql中没有全连接，但可以通过left join + right join + union来实现
 - 自增id：mysql中通过auto_increment实现
 - 空值处理：mysql中除了用coalesce函数，还可以用ifnull函数
