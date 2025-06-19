@@ -56,12 +56,14 @@
   - in.../not in...
   - is (not) null  注意：不能用=
   - like 字符串匹配符：% 匹配任意多个字符，_ 匹配单个字符（转义字符：\）
+  - 条件中可包含from表中的所有列
 - order by 语句
   ```ruby
   ORDER BY column1 DESC, column2 ASC
   ```
   - 排除null：在where语句中加入is not null条件
   - null排最后：在order by语句最后加入nulls last
+  - 可包含from表中的所有列和select语句中的聚合列
 - limit 语句
   ```ruby
   LIMIT 取值数 OFFSET 跳过数
