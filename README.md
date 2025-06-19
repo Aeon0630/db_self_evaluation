@@ -66,6 +66,7 @@
   ```ruby
   ORDER BY column1 DESC, column2 ASC
   ```
+  - 一般情况默认null最大
   - 排除null：在where语句中加入is not null条件
   - null排最后：在order by语句最后加入nulls last
   - 可包含from表中的所有列和select语句中的聚合列
