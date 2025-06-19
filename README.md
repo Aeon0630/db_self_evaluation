@@ -32,7 +32,12 @@
    CHECK (condition1,...));
   ```
   - 数据类型：数值型（int,small int,float(n),numeric(p,d),real）、字符串型（char(n),varchar(n),text）
-  - 对于每列数据，可加PRIMARY KEY、FOREIGN KEY、UNIQUE、CHECK、not null、default等进行限制
+  - 对于每列数据，可加PRIMARY KEY、REFERENCES sheet_name2(column1,...)、UNIQUE、CHECK(condition)、not null、default ... 等进行限制
+  - 对于有外码的情况
+    - 默认禁止删除被参照关系中所对应的值
+    - 级联删除：ON DELETE CASCAVE
+    - 设为NULL：ON DELETE NULL
+    - 设为默认值：ON DELETE SET DEFAULT
   - 自增id：serial
 ### 2.查询语句
 - select 语句
@@ -115,7 +120,7 @@ HAVING condition
 ```
 - 对分组后的数据再次进行筛选
 - 位于group by语句之后，order by语句之前
-- having语句中的条件可包含select语句中的类名和聚合式，以及参与表中其它的聚合式
+- having语句中的条件可包含select语句中的类名和聚合式，以及参与表中其他的聚合式
   
 ## 补充学习
 ### 1.窗口函数
@@ -174,7 +179,7 @@ ALTER TABLE sheet_name ADD COLUMN col1,...
 修改表名：
 ALTER TABLE sheet_name RENAME TO new_sheet_name
 修改列名：
-ALTER TABLE sheet_name ALTER COLUMN col TO new_col
+ALTER TABLE sheet_name RENAME COLUMN col TO new_col
 修改数据类型：
 ALTER TABLE sheet_name ALTER COLUMN col TYPE
 修改默认值：
@@ -182,7 +187,7 @@ ALTER TABLE sheet_name ALTER COLUMN col SET DEFAULT ...
 删除默认值：
 ALTER TABLE sheet_name ALTER COLUMN col DROP DEFAULT
 删除列：
-ALTER TABLE sheet_name DROP COLUMN col1,...
+ALTER TABLE sheet_name DROP COLUMN col1,...   # 被其他关系外码所引用时，不可随意删除，采用级联删除（在最后加上CASCADE）
 ```
 
 ## 补充学习
@@ -190,7 +195,7 @@ ALTER TABLE sheet_name DROP COLUMN col1,...
 ```ruby
 增加主键：
 ALTER TABLE sheet_name ADD CONSTRAINT pk_sheet_name PRIMARY KEY (col1,...)
-增加唯一约束：
+增加唯一键约束：
 ALTER TABLE sheet_name ADD CONSTRAINT unique_col UNIQUE(col)
 增加约束：
 ALTER TABLE sheet_name ADD CONSTRAINT check_col CHECK(condition)
