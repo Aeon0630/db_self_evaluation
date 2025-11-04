@@ -77,17 +77,20 @@
 ### 3.增加语句
 ```ruby
 INSERT INTO table (column1,column2,...)
-VALUES (value1),(value2),...
+VALUES (value1),(value2),...   （子句不加括号）
 ```
+- 可以不选择任何列，默认为表中的所有列，按原表中的列顺序填入对应的值
+- 若选择列，不能为空的列必选，按选择的列顺序填入对应的值（若不选可以为空的列，则填入默认值default）
 ### 4.修改语句
 ```ruby
 UPDATE table
 SET column1 = ..., column2 = ...
+WHERE condition     （子句加括号）
 ```
 ### 5.删除语句
 ```ruby
 DELET FROM table
-WHERE condition
+WHERE condition     （子句加括号）
 ```
 DELET FROM table:清空表     TRUNCATE TABLE table:清空表     DROP TABLE table:删除表
 ### 6.集合操作
