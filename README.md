@@ -56,6 +56,7 @@
   ```ruby
   WHERE condition（条件语句）
   ```
+  - 连接条件语句：AND、OR、NOT
   - 比较运算符：>、>=、<、<=、=、！=
   - between...and...
   - in.../not in...
@@ -124,7 +125,7 @@ HAVING condition
 ```
 - 对分组后的数据再次进行筛选
 - 位于group by语句之后，order by语句之前
-- having语句中的条件可包含select语句中的类名和聚合式，以及参与表中其他的聚合式
+- having语句中的条件可包含select语句中的列名和聚合式，以及参与表中其他的聚合式
   
 ## 补充学习
 ### 1.窗口函数
